@@ -1,6 +1,22 @@
 [trackconversion]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk#trackconversion
 
 # Changelog
+## 4.20.0 - 2026-04-22
+### Features
+* Improved the performance of the [`getDataFile()`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#getdatafile) method. It now returns a cached [`DataFile`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#datafile) instance that is refreshed whenever the SDK configuration is updated.
+* Added a new `dateModified` property to the [`DataFile`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#datafile) object returned by the [`getDataFile`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#getdatafile) method.
+* The [`getFeatureList`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#getfeaturelist) method has been deprecated in favor of `getDataFile()`.
+* Added support for variation simulation when feature flags are **inactive (OFF state)** across the following methods:
+  - [`getVariation`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#getvariation)
+  - [`getVariations`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#getvariations)
+  - [`isFeatureActive`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#isfeatureactive)
+  - This support is also extended to the following **deprecated methods**:
+    - [`getActiveFeatureListForVisitorCode`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#getactivefeaturelistforvisitorcode)
+    - [`getActiveFeatures`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#getactivefeatures)
+    - [`getFeatureVariationKey`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#getfeaturevariationkey)
+    - [`getFeatureVariable`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#getfeaturevariable)
+    - [`getFeatureVariables`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#getfeaturevariables)
+
 ## 4.19.0 - 2026-02-13
 ### Features
 * Introduced support for the Kameleoon [`ApplicationVersion`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#applicationversion) data type, allowing the visitor’s application version to be set and used in targeting evaluation.
