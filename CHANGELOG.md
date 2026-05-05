@@ -1,6 +1,15 @@
 [trackconversion]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk#trackconversion
 
 # Changelog
+## 4.21.0 - 2026-05-05
+### Features
+* Added support for **during the current visit** and **during any of the last visits** settings across the following targeting conditions:
+  - Converted Goal
+  - Feature Flag
+  - Web Experiment
+  - Personalization
+  - Exclusive Campaign
+
 ## 4.20.0 - 2026-04-22
 ### Features
 * Improved the performance of the [`getDataFile()`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#getdatafile) method. It now returns a cached [`DataFile`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#datafile) instance that is refreshed whenever the SDK configuration is updated.
