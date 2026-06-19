@@ -25,6 +25,8 @@
     - [`getFeatureVariationKey`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#getfeaturevariationkey)
     - [`getFeatureVariable`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#getfeaturevariable)
     - [`getFeatureVariables`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk/#getfeaturevariables)
+### Bug fixes
+* Fixed an issue where permanently rejected Data API tracking requests (for example, responses with a `429` status code) prevented visitor sessions from being cleaned up. This could cause sessions to remain in memory indefinitely, leading to excessive RAM usage and potential server slowdowns.
 
 ## 4.19.0 - 2026-02-13
 ### Features
