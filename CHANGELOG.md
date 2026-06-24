@@ -1,6 +1,16 @@
 [trackconversion]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk#trackconversion
 
 # Changelog
+## 4.22.0 - 2026-06-24
+### Features
+* Added support for SDK event handlers through the new [`setEventHandler`][setEventHandler] API:
+  - `DATAFILE_UPDATE` notifies when the SDK data file (configuration) is updated with [polling](https://docs.kameleoon.com/developer-docs/feature-experimentation/technical-reference/technical-considerations#polling-default-%E2%80%8B) or [streaming](https://docs.kameleoon.com/developer-docs/feature-experimentation/technical-reference/technical-considerations#streaming-premium-option-%E2%80%8B) modes.
+  - `HTTP_REQUEST` notifies when SDK HTTP requests complete successfully or fail.
+  - HTTP request events include the request type, HTTP status or failure details, and request duration.
+  - Passing `null` to `setEventHandler` clears the handler for the selected event type.
+
+[setEventHandler]: https://docs.kameleoon.com/developer-docs/sdks/web-sdks/java-sdk#seteventhandler
+
 ## 4.21.0 - 2026-05-05
 ### Features
 * Added support for **during the current visit** and **during any of the last visits** settings across the following targeting conditions:
