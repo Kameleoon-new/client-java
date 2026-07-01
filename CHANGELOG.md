@@ -78,6 +78,8 @@
 ## 4.15.0 - 2025-07-23
 ### Features
 * Added the [`evaluateAudiences`](https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk#evaluateaudiences) method. This method iterates over all Audiences Explorer segments, evaluates each one, and tracks the segments for which the visitor is targeted using the [`TARGETINGSEGMENT`](https://developers.kameleoon.com/apis/data-api-rest/all-endpoints/post-visit-events/) event.
+### Bug fixes
+* Fixed an issue where the SDK could incorrectly evaluate the **Kameleoon Segment** targeting condition as `false`.
 
 ## 4.14.1 - 2025-07-01
 ### Bug fixes
