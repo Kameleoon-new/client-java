@@ -1,6 +1,12 @@
 [trackconversion]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk#trackconversion
 
 # Changelog
+## 4.23.0 - 2026-07-06
+### Features
+* Added the new [`isReady`][isReady] method, which returns `true` once the SDK has successfully loaded its configuration and is ready for use, and `false` otherwise (for example, while initialization is still in progress or has failed). Unlike [`waitInit`](https://docs.kameleoon.com/developer-docs/sdks/web-sdks/java-sdk#waitinit), it returns immediately without blocking or throwing.
+
+[isReady]: https://docs.kameleoon.com/developer-docs/sdks/web-sdks/java-sdk#isready
+
 ## 4.22.0 - 2026-06-24
 ### Features
 * Added support for SDK event handlers through the new [`setEventHandler`][setEventHandler] API:
