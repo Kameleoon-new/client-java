@@ -14,6 +14,7 @@
   - `HTTP_REQUEST` notifies when SDK HTTP requests complete successfully or fail.
   - HTTP request events include the request type, HTTP status or failure details, and request duration.
   - Passing `null` to `setEventHandler` clears the handler for the selected event type.
+* The [`updateConfigurationHandler`](https://docs.kameleoon.com/developer-docs/sdks/web-sdks/java-sdk#updateconfigurationhandler) method has been deprecated in favor of `setEventHandler` with the `DATAFILE_UPDATE` event type.
 
 [setEventHandler]: https://docs.kameleoon.com/developer-docs/sdks/web-sdks/java-sdk#seteventhandler
 
