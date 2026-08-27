@@ -1,6 +1,13 @@
 [trackconversion]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk#trackconversion
 
 # Changelog
+## 4.24.0 - 2026-08-27
+### Features
+* Added the new [`waitInit(timeoutMillis)`](https://docs.kameleoon.com/developer-docs/sdks/web-sdks/java-sdk#waitinit) overload, which limits how long the returned future may stay pending. The future settles with the result of the configuration fetch (successfully once the SDK is ready, or exceptionally with `KameleoonException.Initialization` as soon as the fetch has failed); if no fetch result is available within the timeout, it completes exceptionally with `KameleoonException.Initialization` caused by a `TimeoutException`.
+* Added the new `KameleoonException.Initialization` exception, which [`waitInit`](https://docs.kameleoon.com/developer-docs/sdks/web-sdks/java-sdk#waitinit) now fails with when the SDK could not be initialized. The former `KameleoonException.SDKNotReady` is deprecated; it remains catchable because `Initialization` extends it, and will be removed in the next major release.
+### Bug fixes
+* Targeting conditions of unknown (unsupported) types are now evaluated to `false` instead of `true`, so visitors are no longer targeted by segments containing web-specific conditions the SDK does not support.
+
 ## 4.23.0 - 2026-07-06
 ### Features
 * Added the new [`isReady`][isReady] method, which returns `true` once the SDK has successfully loaded its configuration and is ready for use, and `false` otherwise (for example, while initialization is still in progress or has failed). Unlike [`waitInit`](https://docs.kameleoon.com/developer-docs/sdks/web-sdks/java-sdk#waitinit), it returns immediately without blocking or throwing.
