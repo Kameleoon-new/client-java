@@ -1,6 +1,10 @@
 [trackconversion]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk#trackconversion
 
 # Changelog
+## 4.24.1 - 2026-09-11
+### Bug fixes
+* Reduced the load on the Data API during its outages. After a failed tracking request, the SDK sends only one visitor's data per tracking request until a request succeeds, instead of retrying with a full-size (up to 2.5 MB) request on every tracking interval. Once the Data API is reachable again, the accumulated visitor data is sent in full-size requests as usual.
+
 ## 4.24.0 - 2026-08-27
 ### Features
 * Added the new [`waitInit(timeoutMillis)`](https://docs.kameleoon.com/developer-docs/sdks/web-sdks/java-sdk#waitinit) overload, which limits how long the returned future may stay pending. The future settles with the result of the configuration fetch (successfully once the SDK is ready, or exceptionally with `KameleoonException.Initialization` as soon as the fetch has failed); if no fetch result is available within the timeout, it completes exceptionally with `KameleoonException.Initialization` caused by a `TimeoutException`.
