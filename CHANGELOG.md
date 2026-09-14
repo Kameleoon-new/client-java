@@ -1,6 +1,16 @@
 [trackconversion]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk#trackconversion
 
 # Changelog
+## 4.24.2 - 2026-09-14
+### Bug fixes
+* Fixed excessive SSE reconnection attempts and logging: the SDK now waits the configured delay before reconnecting after any server-side close or connection failure, and no longer attempts to reconnect after `unsubscribe`.
+* Replaced `httpasyncclient` 4.1.5 with `httpcore` 4.4.16.
+* Updated:
+  - `httpclient5` 5.3.1 → 5.6.4
+  - `commons-lang3` 3.18.0 → 3.20.0
+  - `org.jetbrains:annotations` 26.0.1 → 26.1.0
+  - `parsson` (Jakarta build) 1.1.6 → 1.1.9
+
 ## 4.24.1 - 2026-09-11
 ### Bug fixes
 * Reduced the load on the Data API during its outages. After a failed tracking request, the SDK sends only one visitor's data per tracking request until a request succeeds, instead of retrying with a full-size (up to 2.5 MB) request on every tracking interval. Once the Data API is reachable again, the accumulated visitor data is sent in full-size requests as usual.
