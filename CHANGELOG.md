@@ -1,6 +1,10 @@
 [trackconversion]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk#trackconversion
 
 # Changelog
+## 4.24.3 - 2026-09-30
+### Bug fixes
+* Fixed a false-positive `Unexpected TargetingOperator: null` error log when the SDK loads a configuration containing a `BROWSER` or `SDK_LANGUAGE` targeting condition without a version. Such conditions are valid and were evaluated correctly; only the log message was spurious.
+
 ## 4.24.2 - 2026-09-14
 ### Bug fixes
 * Fixed excessive SSE reconnection attempts and logging: the SDK now waits the configured delay before reconnecting after any server-side close or connection failure, and no longer attempts to reconnect after `unsubscribe`.
