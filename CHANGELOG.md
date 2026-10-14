@@ -1,6 +1,14 @@
 [trackconversion]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk#trackconversion
 
 # Changelog
+## 4.25.0 - 2026-10-14
+### Features
+* Real-time configuration streaming can now be enabled for server-side SDKs independently of client-side SDKs. The SDK reads the new `configUpdateMode` field of the configuration (`STREAMING` or `STREAMING_SERVER_ONLY` enables streaming) instead of `realTimeUpdate`.
+### Bug fixes
+* Fixed the SDK getting stuck without configuration updates when the real-time streaming connection could not be established. The SDK now falls back to polling in that case and switches back to streaming once it becomes available again.
+* Fixed the SDK getting stuck without configuration updates on a stalled streaming connection (e.g. one silently dropped by a NAT or load balancer). The SDK now treats 6 minutes of silence as a connection failure and reconnects.
+* Lowered the log level of the routine `SSE connection: '...' was closed by server` message from `ERROR` to `INFO`. The streaming server recycles connections periodically and the SDK reconnects automatically, so this is expected behavior. Connection failures (error responses, network errors) are still logged as `ERROR`.
+
 ## 4.24.3 - 2026-09-30
 ### Bug fixes
 * Fixed a false-positive `Unexpected TargetingOperator: null` error log when the SDK loads a configuration containing a `BROWSER` or `SDK_LANGUAGE` targeting condition without a version. Such conditions are valid and were evaluated correctly; only the log message was spurious.
