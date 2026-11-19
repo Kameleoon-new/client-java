@@ -1,6 +1,14 @@
 [trackconversion]: https://developers.kameleoon.com/feature-management-and-experimentation/web-sdks/java-sdk#trackconversion
 
 # Changelog
+## 4.26.0 - 2026-11-19
+### Features
+* Added support for version strings containing pre-release and build metadata, in accordance with [Semantic Versioning](https://semver.org/#semantic-versioning-200). Pre-release and build metadata components are currently ignored, and the version is normalized to `major.minor.patch`.
+### Bug fixes
+* Fixed an older configuration being applied over a newer one when two configuration fetches (for example, triggered by two streaming events in quick succession) completed out of order. The SDK now ignores a fetched configuration whose `dateModified` is older than the current one's.
+* A configuration fetch which fails while the SDK is in streaming mode (for example, the fetch triggered by a streaming event hits a transient network error) is now retried after one minute (or the refresh interval if it is shorter), with streaming restored once a fetch succeeds, instead of after a full refresh interval.
+* Fixed the SDK never falling back to polling when the streaming connection kept being established but never delivered an event: it stalled every time, or was closed right away (for example, behind a proxy which accepts the connection but forwards nothing, or answers with an empty response). The SDK now falls back to polling once two connections in a row end without a received event.
+
 ## 4.25.0 - 2026-10-14
 ### Features
 * Real-time configuration streaming can now be enabled for server-side SDKs independently of client-side SDKs. The SDK reads the new `configUpdateMode` field of the configuration (`STREAMING` or `STREAMING_SERVER_ONLY` enables streaming) instead of `realTimeUpdate`.
